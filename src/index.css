@@ -1,6 +1,8 @@
-html, body, #root {
-  height: 200px;
-  width: 200px;
+html,
+body,
+#root {
+  height: 500px;
+  width: 500px;
 }
 
 body {
