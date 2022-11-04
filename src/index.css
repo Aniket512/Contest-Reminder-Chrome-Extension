@@ -1,8 +1,7 @@
 html, body, #root {
-  height: 1000px;
+  height: 500px;
   width: 300px;
 }
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
