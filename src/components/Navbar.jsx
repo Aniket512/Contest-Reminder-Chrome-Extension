@@ -4,10 +4,10 @@ export const NavBar = () => {
       <nav>
         <ul className="nav-links">
           <li>
-            <a>Home</a>
+            <a href="\">Home</a>
           </li>
           <li>
-            <a>Platforms</a>
+            <a href="\platform">Platforms</a>
           </li>
         </ul>
       </nav>
