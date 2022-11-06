@@ -1,13 +1,17 @@
 import React from "react";
 
 
-export const Home = ({contests}) => {
+export const Home = ({ contests }) => {
+
+  const sites = Object.values(JSON.parse(localStorage.getItem('host_sites'))).filter(site => site.status === true).map(site => site.name);
+  const selectedContests = contests.filter(contest => sites.includes(contest.site));
+
   const beautifyDate = (date) => {
     let date_options = {
       day: "2-digit",
       month: "short",
       year: "numeric",
-  
+
       hour: "numeric",
       minute: "numeric",
     };
@@ -15,7 +19,7 @@ export const Home = ({contests}) => {
       .toLocaleString("en-IN", date_options)
       .replaceAll("-", " ");
   };
-  
+
   const fetchTime = (duration) => {
     const minutes = (parseInt(duration) / 60) % 60;
     const hours = parseInt((parseInt(duration) / 3600) % 24);
@@ -23,7 +27,7 @@ export const Home = ({contests}) => {
     var timeDuration = ``;
     if (days > 0)
       timeDuration += `${days} days `;
-    if (hours > 0) 
+    if (hours > 0)
       timeDuration += `${hours} hours `;
     if (minutes > 0)
       timeDuration += `${minutes} minutes `;
@@ -32,11 +36,11 @@ export const Home = ({contests}) => {
 
   return (
     <div className="contest-list">
-      {contests?.map((contest) => {    
+      {selectedContests?.map((contest) => {
         return (
           <div className="box">
             <div className="wrapper">
-              <img className="image" src={"images/" + contest.site + ".png"} width="30" height="30" />
+              <img className="image" src={"images/" + contest.site + ".png"} onError={(e) => { e.target.src = "images/KickStart.png" }} />
               <div className="data">
                 <div className="content">
                   <h1 className="title">

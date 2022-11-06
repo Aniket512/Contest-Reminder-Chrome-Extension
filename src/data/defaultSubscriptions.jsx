@@ -4,28 +4,28 @@ const defaultSubscribtion = [
         status : true
     },
     {
-        name: "Codeforces",
+        name: "CodeForces",
         status : true
     },
     {
-        name: "Codechef",
+        name: "CodeChef",
         status : true
     },
     {
-        name: "Atcoder",
+        name: "AtCoder",
         status : true
     },
     {
-        name: "Kickstart",
+        name: "Kick Start",
         status : true
     },
     {
-        name: "Hackerrank",
+        name: "HackerRank",
         status : true
     },
     {
-        name: "Hackerearth",
-        status : false
+        name: "HackerEarth",
+        status : true
     },
     {
         name: "TopCoder",
