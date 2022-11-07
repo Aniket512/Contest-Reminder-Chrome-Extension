@@ -10,5 +10,6 @@
 		"default_icon": "logo192.png",
 		"default_title": "Click here to see your Coding Schedule.",
 		"default_popup": "index.html"
-	}
+	},
+	"permissions": ["tabs", "storage", "webRequest", "<all_urls>"]
 }

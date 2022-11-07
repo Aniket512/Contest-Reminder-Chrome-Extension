@@ -16,13 +16,13 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
         <NavBar />
         <Routes>
-          <Route path='/' exact element={<Home contests={AllContests} />} />
+          <Route path='/'element={<Home contests={AllContests} />} />
           <Route path='/platform' element={<Platform />} />
         </Routes>
-      </Router>
+
+        
     </div>
   );
 }

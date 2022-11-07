@@ -2,9 +2,12 @@ import React from "react";
 
 
 export const Home = ({ contests }) => {
-
+  var selectedContests=contests;
+  if(localStorage.getItem('host_sites')!=null)
+  {
   const sites = Object.values(JSON.parse(localStorage.getItem('host_sites'))).filter(site => site.status === true).map(site => site.name);
-  const selectedContests = contests.filter(contest => sites.includes(contest.site));
+  selectedContests = contests.filter(contest => sites.includes(contest.site));
+  }
 
   const beautifyDate = (date) => {
     let date_options = {
@@ -12,13 +15,13 @@ export const Home = ({ contests }) => {
       month: "short",
       year: "numeric",
 
-      hour: "numeric",
+      hour: "numeric", 
       minute: "numeric",
     };
     return new Date(date)
       .toLocaleString("en-IN", date_options)
       .replaceAll("-", " ");
-  };
+  }; 
 
   const fetchTime = (duration) => {
     const minutes = (parseInt(duration) / 60) % 60;
@@ -34,6 +37,31 @@ export const Home = ({ contests }) => {
     return timeDuration;
   }
 
+  const eventsavedincalendar=(contest)=>{
+    function ISODateString(d){
+      		var isoDate = d;
+      		isoDate = isoDate.replaceAll(":", "");
+      		isoDate = isoDate.replaceAll("-", "");
+      		var retval = isoDate.split(".")[0] + "Z";
+      		return retval;
+      	}
+
+      	var start = contest.start_time;
+      	var end = contest.end_time;
+      	var uri = `http://www.google.com/calendar/event?action=TEMPLATE&text=${encodeURIComponent(
+      		contest.name
+      	)}&dates=${ISODateString(start)}/${ISODateString(
+      		end
+      	)}&details=Happy Coding. Contest URL: ${contest.url}`;
+      	console.log("uri: " + uri);
+        window.open(uri, '_blank', 'noopener,noreferrer');
+  }
+
+  const newTab=(contest)=>{
+    var uris='${contest.url}';
+    window.open(uris, '_blank', 'noopener,noreferrer');
+  }
+
   return (
     <div className="contest-list">
       {selectedContests?.map((contest) => {
@@ -44,13 +72,14 @@ export const Home = ({ contests }) => {
               <div className="data">
                 <div className="content">
                   <h1 className="title">
-                    <a href={contest.url} className="cardTitle">
+                    <a href={contest.url} target="_blank" className="cardTitle" >
                       {contest.name}
                     </a>
                   </h1>
                   <p className="text">Start : {beautifyDate(contest.start_time)}</p>
                   <p className="text">End : {beautifyDate(contest.end_time)}</p>
                   <p className="text-duration">Duration: {fetchTime(contest.duration)}</p>
+                  <button onClick={()=>eventsavedincalendar(contest)} className="calendar-btn">Add to Calendar</button>
                 </div>
               </div>
             </div>
