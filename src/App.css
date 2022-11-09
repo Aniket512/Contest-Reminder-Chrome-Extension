@@ -2,8 +2,12 @@
 
 .App {
   height: 100%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
-
+.App::-webkit-scrollbar{
+  display: none;
+}  
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -211,9 +215,14 @@ p{
 .calendar-btn{
   margin-bottom: 5px;
   border-style: none;
-  background-color:  #003741;
+  background-color:  #007bff;
   color: #ffffff;
   border-radius: 10%;
+  cursor: pointer;
+}
+.calendar-btn:hover{
+  background-color: #0069d9;
+    border-color: #0062cc;
 }
 
 .bind{
@@ -240,4 +249,23 @@ p{
 }
 .MuiButtonBase{
   background-color: #ff00a9;
+}
+.empty{
+  display: flex;
+    justify-content: center;
+    color: grey;
+}
+.group-btn{
+  display: flex;
+  justify-content: space-between;
+}
+
+.contest-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.contest-list {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
 }

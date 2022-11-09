@@ -44,9 +44,15 @@ export const ContestCard = ({contests}) => {
         console.log("uri: " + uri);
         window.open(uri, "_blank", "noopener,noreferrer");
       };
+
+    const gotocontest=(contest)=>{
+      const uri=contest.url
+      window.open(uri, "_blank", "noopener,noreferrer");
+      }
     return (
         <>
-                <div className="contest-list">
+        {(contests?.length == 0) ?<div className="empty">No Contests</div>:
+        <div className="contest-list">
         {contests?.map((contest) => {
           return (
             <div className="box">
@@ -78,19 +84,23 @@ export const ContestCard = ({contests}) => {
                     <p className="text-duration">
                       Duration: {fetchTime(contest.duration)}
                     </p>
+                    <div className="group-btn">
+                    <button className="calendar-btn" onClick={() => gotocontest(contest)}>Go to contest</button>
                     <button
                       onClick={() => eventsavedincalendar(contest)}
                       className="calendar-btn"
+                      alt="add to calendar"
                     >
                       <Event></Event>
                     </button>
+                  </div>
                   </div>
                 </div>
               </div>
             </div>
           );
         })}
-      </div>
+      </div>}
     </>
       );
 }
