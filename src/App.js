@@ -1,3 +1,4 @@
+   /*global chrome*/
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { NavBar } from "./components/Navbar";
@@ -22,7 +23,7 @@ function App() {
           <Route path='/platform' element={<Platform />} />
         </Routes>
 
-        
+
     </div>
   );
 }
