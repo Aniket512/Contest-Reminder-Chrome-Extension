@@ -177,8 +177,8 @@ nav .nav-links a:hover {
 
 
 #checkbox{
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   align-items: flex-end;
   position: absolute;
   margin-left: 300px;
@@ -205,16 +205,15 @@ p{
   margin-left: 40px
 }
 
+.site-name{
+  font-size: 20px;
+}
 .calendar-btn{
-  display: flex;
-    margin-bottom: 10px;
-    background-color: #2865f9;
-    color: white;
-    border-radius: 5px;
-    font-size: 15px;
-    border-style: solid;
-    border-color: white;
-    cursor: pointer;
+  margin-bottom: 5px;
+  border-style: none;
+  background-color:  #003741;
+  color: #ffffff;
+  border-radius: 10%;
 }
 
 .bind{
