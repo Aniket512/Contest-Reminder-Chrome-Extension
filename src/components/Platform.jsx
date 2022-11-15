@@ -25,12 +25,10 @@ const Platform = () => {
             {Object.keys(subscribed).map((key) => {
                 return (
                     <>
-                        <input type="hidden" name="listName" value="<%= listTitle %>"></input>
                         <div className="item">
-                            <img className="image" src={"images/" + subscribed[key].name + ".png"} onError={(e) => { e.target.src = "images/KickStart.png" }} />
+                            <img className="platform image" alt="" src={"images/" + subscribed[key].name + ".png"} onError={(e) => { e.target.src = "images/KickStart.png" }} />
                             <p className="site-name">{subscribed[key].name}</p>
                             <input type="checkbox" defaultChecked={subscribed[key].status} name="" id="checkbox" onClick={() => handleClick(key)} />
-
                         </div>
 
                     </>

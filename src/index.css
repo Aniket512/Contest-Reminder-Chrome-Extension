@@ -1,6 +1,6 @@
 html, body, #root {
   height: 500px;
-  width: 400px;
+  width: 380px;
 }
 html {
   overflow: scroll;
