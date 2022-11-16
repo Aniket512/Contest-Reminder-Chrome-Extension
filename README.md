@@ -4,7 +4,8 @@ This is an extension of chrome that displays information about all the ongoing a
 
 ## Demo
 
-![70uuvp](https://user-images.githubusercontent.com/83766837/201964733-ef65a3cd-9deb-43f7-a029-4d2b0e524832.gif)
+<img src="https://user-images.githubusercontent.com/61049031/202154141-e38a438d-6258-46bc-9f4d-adef3ac1c4e9.gif" width="280" height="450"/>
+
 
 ## Features
 * This extension shows the contest details of following 8 platfrorms.
