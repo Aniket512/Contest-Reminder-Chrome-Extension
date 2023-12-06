@@ -9,7 +9,7 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   const [AllContests, setAllContests] = useState([])
   useEffect(() => {
-    axios.get("https://kontests.net/api/v1/all").then((res) => {
+    axios.get("https://shrivats.pythonanywhere.com/contests").then((res) => {
       setAllContests(res.data);
     })
   }, []);

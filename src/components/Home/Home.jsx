@@ -8,14 +8,14 @@ export const Home = ({ contests }) => {
   if (localStorage.getItem("host_sites") != null) {
     const sites = Object.values(JSON.parse(localStorage.getItem("host_sites")))
       .filter((site) => site.status === true)
-      .map((site) => site.name);
+      .map((site) => site.name.toLowerCase());
     selectedContests = contests.filter((contest) =>
-      sites.includes(contest.site)
+      sites.includes(contest?.site)
     );
   }
 
-  const in24Hours = selectedContests.filter(contest => contest.in_24_hours === "Yes");
-  const upcoming = selectedContests.filter(contest => contest.status === "BEFORE");
+  const in24Hours = selectedContests.filter(contest => contest?.in_24_hours === "Yes");
+  const upcoming = selectedContests.filter(contest => contest?.status === "BEFORE");
 
   const [selectedTab, setSelectedTab] = useState(0);
 

@@ -16,16 +16,16 @@ export const ContestCard = ({ contests }) => {
       .replaceAll("-", " ");
   };
 
-  const fetchTime = (duration) => {
-    const minutes = (parseInt(duration) / 60) % 60;
-    const hours = parseInt((parseInt(duration) / 3600) % 24);
-    const days = parseInt(parseInt(duration) / 3600 / 24);
-    var timeDuration = ``;
-    if (days > 0) timeDuration += `${days} days `;
-    if (hours > 0) timeDuration += `${hours} hours `;
-    if (minutes > 0) timeDuration += `${minutes} minutes `;
-    return timeDuration;
-  };
+  // const fetchTime = (duration) => {
+  //   const minutes = (parseInt(duration) / 60) % 60;
+  //   const hours = parseInt((parseInt(duration) / 3600) % 24);
+  //   const days = parseInt(parseInt(duration) / 3600 / 24);
+  //   var timeDuration = ``;
+  //   if (days > 0) timeDuration += `${days} days `;
+  //   if (hours > 0) timeDuration += `${hours} hours `;
+  //   if (minutes > 0) timeDuration += `${minutes} minutes `;
+  //   return timeDuration;
+  // };
 
   const eventSaveInCalendar = (contest) => {
     function ISODateString(d) {
@@ -40,16 +40,16 @@ export const ContestCard = ({ contests }) => {
     var start = contest.start_time;
     var end = contest.end_time;
     var uri = `http://www.google.com/calendar/event?action=TEMPLATE&text=${encodeURIComponent(
-      contest.name
+      contest?.name
     )}&dates=${ISODateString(start)}/${ISODateString(
       end
-    )}&details=Happy Coding. Contest URL: ${contest.url}`;
+    )}&details=Happy Coding. Contest URL: ${contest?.url}`;
     console.log("uri: " + uri);
     window.open(uri, "_blank", "noopener,noreferrer");
   };
 
   const gotoContest = (contest) => {
-    const uri = contest.url
+    const uri = contest?.url
     window.open(uri, "_blank", "noopener,noreferrer");
   }
   return (
@@ -62,7 +62,7 @@ export const ContestCard = ({ contests }) => {
                 <div className="wrapper">
                   <img
                     className="image"
-                    src={"images/" + contest.site + ".png"}
+                    src={"images/" + contest?.site + ".png"}
                     alt=""
                     onError={(e) => {
                       e.target.src = "images/KickStart.png";
@@ -70,13 +70,13 @@ export const ContestCard = ({ contests }) => {
                   />
                   <div className="content">
                     <h1 className="title">
-                      {(contest.name)}
+                      {(contest?.name)}
                     </h1>
                     <p className="text start">
-                      Start : {beautifyDate(contest.start_time)}
+                      Start : {beautifyDate(contest?.start_time)}
                     </p>
                     <p className="text">
-                      Duration: {fetchTime(contest.duration)}
+                      Duration: {contest?.duration}
                     </p>
                     <div className="group-btn">
                       <button className="calendar-btn" title="Go To Contest" onClick={() => gotoContest(contest)}>Go to contest</button>

@@ -67,6 +67,7 @@ nav .nav-links a {
   cursor: pointer;
   color: white;
   border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 nav .nav-links a:hover {
